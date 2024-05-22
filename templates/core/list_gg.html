@@ -23,7 +23,7 @@
             {% for gg in grantgoals %}
                 <tr>
                     <td>{{ gg.id }}</td>
-                    <td>{{ gg.ggname }}</td>
+                    <td>{{ gg.ggname }} <br><progress id="file" value="32" max="100"> 32% </progress></td>
                     <td>{{ gg.user }}</td>
                     <td>{{ gg.days_duration }}</td>
                     <td>{{ gg.timestamp }}</td>

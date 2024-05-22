@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 from core import models
-from .forms import NewGrantGoalForm, UpdateGrantGoalForm
+from core import forms
 
 
 # # # # #  C R U D G R A N T G O A L S # # # # #
@@ -15,7 +15,7 @@ from .forms import NewGrantGoalForm, UpdateGrantGoalForm
 class NewGrantGoal(generic.CreateView):
     template_name = "core/create_gg.html"
     model = models.GrantGoal
-    form_class = NewGrantGoalForm
+    form_class = forms.NewGrantGoalForm
     success_url = reverse_lazy("core:list_gg")
 
 
@@ -47,7 +47,7 @@ class DetailGrantGoal(generic.View):
 class UpdateGrantGoal(generic.UpdateView):
     template_name = "core/update_gg.html"
     model = models.GrantGoal
-    form_class = UpdateGrantGoalForm
+    form_class = forms.UpdateGrantGoalForm
     success_url = reverse_lazy("core:list_gg")
 
 
@@ -62,21 +62,39 @@ class DeleteGrantGoal(generic.DeleteView):
 
 
 # # # C R E A T E # # #
-
-
+class NewSubGrantGoal(generic.CreateView):
+    template_name = "core/create_sgg.html"
+    model = models.SubGrantGoal
+    form_class = forms.NewSubGrantGoalForm
+    success_url = reverse_lazy("core:list_sgg")
 # # # R E T R I E V E # # #
 # # List
+class ListSubGrantGoal(generic.ListView):
+    template_name = "core/list_sgg.html"
+    queryset = models.SubGrantGoal.objects.filter(status=True)
+
+
 # # Detail
 
-
+class DetailSubGrantGoal(generic.DetailView):
+    template_name = "core/detail_sgg.html"
+    model = models.SubGrantGoal
 
 # # # U P D A T E # # #
+class UpdateSubGrantGoal(generic.UpdateView):
+    template_name = "core/update_sgg.html"
+    model = models.SubGrantGoal
+    form_class = forms.UpdateSubGrantGoalForm
+    success_url = reverse_lazy("core:list_sgg")
 
 
 
 # # # D E L E T E # # #
 
-
+class DeleteSubGrantGoal(generic.DeleteView):
+    template_name = "core/delete_sgg.html"
+    model = models.SubGrantGoal
+    success_url = reverse_lazy("core:list_sgg")
 
 # # # # #  C R U D G O A L S # # # # #
 

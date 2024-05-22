@@ -10,4 +10,12 @@ urlpatterns = [
     path('detail/grantgoal/<int:pk>/', views.DetailGrantGoal.as_view(), name="detail_gg"),
     path('update/grantgoal/<int:pk>/', views.UpdateGrantGoal.as_view(), name="update_gg"),
     path('delete/grantgoal/<int:pk>/', views.DeleteGrantGoal.as_view(), name="delete_gg"),
+    ### SUBGRANTGOALS URLS ###
+    path('list/subgrantgoal/', views.ListSubGrantGoal.as_view(), name="list_sgg"),
+    path('detail/subgrantgoal/<int:pk>/', views.DetailSubGrantGoal.as_view(), name="detail_sgg"),
+    path('new/subgrantgoal/', views.NewSubGrantGoal.as_view(), name="create_sgg"),
+    path('update/subgrantgoal/<int:pk>/', views.UpdateSubGrantGoal.as_view(), name="update_sgg"),
+    path('delete/subgrantgoal/<int:pk>/', views.DeleteSubGrantGoal.as_view(), name="delete_sgg"),
+    
 ]
+    
