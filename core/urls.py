@@ -16,6 +16,18 @@ urlpatterns = [
     path('new/subgrantgoal/', views.NewSubGrantGoal.as_view(), name="create_sgg"),
     path('update/subgrantgoal/<int:pk>/', views.UpdateSubGrantGoal.as_view(), name="update_sgg"),
     path('delete/subgrantgoal/<int:pk>/', views.DeleteSubGrantGoal.as_view(), name="delete_sgg"),
-    
+    ### GOAL URLS ###
+    path('list/goal/', views.ListGoal.as_view(), name="list_ggg"),
+    path('new/goal/', views.NewGoal.as_view(), name="create_ggg"),
+    path('detail/goal/<int:pk>/', views.DetailGoal.as_view(), name="detail_ggg"),
+    path('update/goal/<int:pk>/', views.UpdateGoal.as_view(), name="update_ggg"),
+    path('delete/goal/<int:pk>/', views.DeleteGoal.as_view(), name="delete_ggg"),
+    ### ISSUE URLS ###
+    path('list/issue/', views.ListIssue.as_view(), name="list_is"),
+    path('new/issue/', views.NewIssue.as_view(), name="create_is"),
+    path('detail/issue/<int:pk>/', views.DetailIssue.as_view(), name="detail_is"),
+    path('update/issue/<int:pk>/', views.UpdateIssue.as_view(), name="update_is"),
+    path('delete/issue/<int:pk>/', views.DeleteIssue.as_view(), name="delete_is"),
+
 ]
     

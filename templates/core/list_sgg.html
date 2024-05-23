@@ -23,12 +23,12 @@
         <tbody>
             {% for gg in object_list %}
                 <tr>
-                    <td>{{ sgg.id }}</td>
-                    <td>{{ sgg.sggname }} <br><progress id="file" value="{{sgg.progress}}" max="100"></progress> </td>
-                    <td>{{ sgg.user }}</td>
+                    <td>{{ gg.id }}</td>
+                    <td>{{ gg.sggname }} <br><progress id="file" value="{{sgg.progress}}" max="100"></progress> </td>
+                    <td>{{ gg.user }}</td>
                     <td>{{gg.grantgoal}} <br><progress id="file" value="{{sgg.progress}}" max="100"></progress> </td>
-                    <td>{{ sgg.days_duration }}</td>
-                    <td>{{ sgg.timestamp }}</td>
+                    <td>{{ gg.days_duration }}</td>
+                    <td>{{ gg.timestamp }}</td>
                     <td><a href="{% url 'core:detail_sgg' gg.pk %}" class="btn btn-outline-info">Detail</a></td>
                     <td><a href="{% url 'core:update_sgg' gg.pk %}" class="btn btn-outline-warning">Update</a></td>
                     <td><a href="{% url 'core:delete_sgg' gg.pk %}" class="btn btn-outline-danger">Delete</a></td>
