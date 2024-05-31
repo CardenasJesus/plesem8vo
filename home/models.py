@@ -27,3 +27,5 @@ class Profile(models.Model):
 def auto_profile(sender, instance, **kwargs):
     if kwargs.get("created", False):
         Profile.objects.get_or_create(user=instance)
+
+        

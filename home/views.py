@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy
 from .forms import LoginForm, SingUpForm
+
+from .models import Profile
 # Create your views here.
 
 
@@ -48,3 +50,21 @@ class SingUp(generic.CreateView):
         if user is not None:
             login(self.request, user)
         return redirect('home:index')
+
+class ListProfile(generic.View):
+    template_name = "home/list_profile.html"
+    context = {}
+    def get(self, request):
+        self.context = {
+            "profiles": Profile.objects.filter(status=True)
+        }
+        return render(request, self.template_name, self.context)
+
+class DetailProfile(generic.DetailView):
+    template_name = "home/detail_profile.html"
+    context = {}
+    def get(self, request,pk):
+        self.context = {
+            "profile": Profile.objects.get(pk=pk)
+        }
+        return render(request, self.template_name, self.context)
