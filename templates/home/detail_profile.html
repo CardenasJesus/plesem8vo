@@ -1,9 +1,30 @@
 {% extends "base/base.html" %}
+
 {% block title %} DETAILS PROFILE {% endblock title %}
 {% block content %}
-
-<h3>{{ profile.user.first_name }}</h3>
-<a href="{% url 'home:list_profile' %}">Return</a>
-
+   
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><h3>{{ profile.user.first_name }}</h3></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"> <p>{{ profile.user.last_name }}</p></h6>
+          <p class="card-text">{{ profile.bio }}</p>
+          <p class="card-text">{{ profile.timestamp }}</p>
+          <a href="{% url 'home:list_profile' %}">Return</a> <br />
+        </div>
+      </div>
+      <br />
+    <p class="d-inline-flex gap-1 small" >
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+         Estructure info about {{ profile.user.first_name }}
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <p class="card-text">Name: {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+            <p class="card-text">Bio: {{ profile.bio }}</p>
+            <p class="card-text">Create at: {{ profile.timestamp }}</p>
+            <p class="card-text">Last Update: {{ profile.updated }}</p>
+        </div>
+      </div>
 
 {% endblock content%}
