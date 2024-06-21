@@ -6,6 +6,7 @@ class ListGrantGoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrantGoal
         fields = [
+            'id',
             'ggname',
             'description',
             'user',
@@ -29,6 +30,7 @@ class UpdateGrantGoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrantGoal
         fields = [
+            'id',
             'ggname',
             'description',
             "days_duration",

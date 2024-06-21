@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% block title %}Grant Goal Client View{% endblock title %}
+{% block content %}
+<a href="{% url 'gg:create_gg_cl' %}" class="btn btn-primary form-control">New GrantGoal</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Grant Goal Client View</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>timestamp</th>
+            <th>days durations</th>
+            <th>State</th>
+            <th>Status</th>
+            <th></th>
+            <th>Actions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for gg in grantgoals %}
+          <tr>
+            <td>{{ gg.ggname }}</td>
+            <td>{{ gg.timestamp }}</td>
+            <td>{{ gg.days_durations }}</td>
+            <td>{{ gg.state }}</td>
+            <td>{{ gg.status }}</td>
+            <td><a href="{% url 'gg:detail_gg_cl' gg.id %}" class="btn btn-primary">Detail</a></td>
+            <td><a href="" class="btn btn-warning">Update</a></td>
+            <td><a href="" class="btn btn-danger">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endblock %}
