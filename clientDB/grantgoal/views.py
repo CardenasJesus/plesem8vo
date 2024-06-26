@@ -23,10 +23,11 @@ class CreateGrantGoalClientView(generic.View):
             "description": request.POST["description"],
             "user": request.user.username,
             "days_duration": request.POST["days_duration"],
-            "priority": 'HG',
-            "state": 'NS',
+            "priority": request.POST["priority"],
+            "state": request.POST["state"],
             "status": request.POST["status"],
             "slug": request.POST["slug"],
+            "user": 1
         }
         self.response = requests.post(url=self.url, data=payload)
         return redirect("gg:list_gg_cl")
