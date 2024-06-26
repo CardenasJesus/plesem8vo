@@ -24,7 +24,7 @@ class CreateGrantGoalClientView(generic.View):
             "user": request.user.username,
             "days_duration": request.POST["days_duration"],
             "priority": 'HG',
-            "state": 'Not Started',
+            "state": 'NS',
             "status": request.POST["status"],
             "slug": request.POST["slug"],
         }
